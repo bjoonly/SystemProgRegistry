@@ -1,0 +1,38 @@
+﻿<Window x:Class="SystemProgRegistry.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:res="clr-namespace:SystemProgRegistry.Properties"
+        xmlns:local="clr-namespace:SystemProgRegistry"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"  Background="{Binding BackgroundBrush}">
+    <Grid  >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.25*" MinHeight="30"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+        <DockPanel>
+            <TextBlock VerticalAlignment="Center" Margin="10" Foreground="{ Binding FontBrush}" FontSize="{Binding TextSize}" Text="{Binding Source={x:Static res:ResourceService.Current}, Path=Resources.LanguageTextBlock, Mode=OneWay}"></TextBlock>
+            <ComboBox  Margin="10" ItemsSource="{Binding  Languages}"  SelectedItem="{Binding SelectedLanguage}"></ComboBox>
+        </DockPanel>
+        <DockPanel Grid.Column="1">
+            <TextBlock VerticalAlignment="Center" Margin="10" Foreground="{ Binding FontBrush}" FontSize="{Binding TextSize}" Text="{Binding Source={x:Static res:ResourceService.Current}, Path=Resources.ThemeTextBlock, Mode=OneWay}"></TextBlock>
+            <ComboBox ItemsSource="{Binding Themes}" SelectedItem="{Binding SelectedTheme}" Margin="10"></ComboBox>
+        </DockPanel>
+        <DockPanel Grid.Column="2">
+            <TextBlock VerticalAlignment="Center" Margin="10" Foreground="{ Binding FontBrush}" FontSize="{Binding TextSize}" Text="{Binding Source={x:Static res:ResourceService.Current}, Path=Resources.SizeTextBlock, Mode=OneWay}"></TextBlock>
+            <ComboBox Margin="10" ItemsSource="{Binding SizeFont}" SelectedValue="{Binding SelectedSize}"></ComboBox>
+        </DockPanel>
+        <TextBlock x:Name="textBlock" VerticalAlignment="Center" Grid.Row="1"  Foreground="{ Binding FontBrush}" FontSize="{Binding TextSize}" Text="{Binding Source={x:Static res:ResourceService.Current}, Path=Resources.TextTextBlock, Mode=OneWay}"></TextBlock>
+       
+
+    </Grid>
+</Window>
